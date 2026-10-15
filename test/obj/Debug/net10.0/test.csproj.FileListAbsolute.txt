@@ -1,0 +1,15 @@
+/home/blu/Documents/Rogalik/test/bin/Debug/net10.0/test
+/home/blu/Documents/Rogalik/test/bin/Debug/net10.0/test.deps.json
+/home/blu/Documents/Rogalik/test/bin/Debug/net10.0/test.runtimeconfig.json
+/home/blu/Documents/Rogalik/test/bin/Debug/net10.0/test.dll
+/home/blu/Documents/Rogalik/test/bin/Debug/net10.0/test.pdb
+/home/blu/Documents/Rogalik/test/obj/Debug/net10.0/test.GeneratedMSBuildEditorConfig.editorconfig
+/home/blu/Documents/Rogalik/test/obj/Debug/net10.0/test.AssemblyInfoInputs.cache
+/home/blu/Documents/Rogalik/test/obj/Debug/net10.0/test.AssemblyInfo.cs
+/home/blu/Documents/Rogalik/test/obj/Debug/net10.0/test.csproj.CoreCompileInputs.cache
+/home/blu/Documents/Rogalik/test/obj/Debug/net10.0/test.sourcelink.json
+/home/blu/Documents/Rogalik/test/obj/Debug/net10.0/test.dll
+/home/blu/Documents/Rogalik/test/obj/Debug/net10.0/refint/test.dll
+/home/blu/Documents/Rogalik/test/obj/Debug/net10.0/test.pdb
+/home/blu/Documents/Rogalik/test/obj/Debug/net10.0/test.genruntimeconfig.cache
+/home/blu/Documents/Rogalik/test/obj/Debug/net10.0/ref/test.dll

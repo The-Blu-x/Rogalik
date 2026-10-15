@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 class Program
 {
@@ -17,24 +18,31 @@ class Program
         DrawMap();
 
         Entity player = new(1, "Player", '@', 30, 30, 2, 2);
-        Entity goblin = new(2, "Goblin" , 'G', 15, 15, 5, 5);
+        
+        // Any new types of enemies add here
+        List<Entity> enemies = new List<Entity>();
+        enemies.Add(new Entity(2, "Goblin", 'G', 15, 15, 5, 5));
+        enemies.Add(new Entity(3, "Orc", 'O', 25, 25, 8, 3));
+        enemies.Add(new Entity(4, "Troll", 'T', 40, 40, 2, 8));
+
+        // Drawing the enemies for the first time before the loop starts
+        foreach (Entity enemy in enemies)
+        {
+            Console.SetCursorPosition(enemy.PositionX, enemy.PositionY);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write(enemy.Symbol);
+        }
 
         while (true)
         {
-            // Draw player
+            // Drawing player
             Console.SetCursorPosition(player.PositionX, player.PositionY);
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write(player.Symbol);
-            if(goblin.CurrentHealth>0)
-            {
-                Console.SetCursorPosition(goblin.PositionX, goblin.PositionY);
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.Write(goblin.Symbol);
-            }
 
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
-            // Erase player by drawing the tile's specific symbol and color underneath them
+            // Eraseing player 
             Tile tileUnderPlayer = map[player.PositionX, player.PositionY];
             Console.SetCursorPosition(player.PositionX, player.PositionY);
             Console.ForegroundColor = tileUnderPlayer.Color;
@@ -52,31 +60,52 @@ class Program
                 case ConsoleKey.Escape:     return; 
             }
 
-            // collision detection
-            if (map[nextX, nextY].IsWalkable && !(nextX == goblin.PositionX && nextY == goblin.PositionY))
+            // bump logic
+            Entity? bumpedEnemy = GetEnemyAt(nextX, nextY, enemies);
+
+            if (bumpedEnemy != null)
             {
-                player.PositionX = nextX;
-                player.PositionY = nextY;
-                Console.SetCursorPosition(0, mapHeight+1);
-                Console.WriteLine("                                                   ");
-            } 
-            else if (nextX == goblin.PositionX && nextY == goblin.PositionY)
-            {
-              if (goblin.CurrentHealth > 0)
+                // Attack the enemy!
+                bumpedEnemy.CurrentHealth -= 5;
+                Console.SetCursorPosition(0, mapHeight + 1);
+                
+                if (bumpedEnemy.CurrentHealth > 0)
                 {
-                    goblin.CurrentHealth -= 5;
-                    Console.SetCursorPosition(0, mapHeight+1);
-                    System.Console.WriteLine("Goblin otrzymał 5 obrażeń");
+                    Console.WriteLine($"{bumpedEnemy.Name} otrzymał 5 obrażeń!                 ");
                 }
                 else
                 {
-                    player.PositionX = nextX;
-                    player.PositionY = nextY;
-                    Console.SetCursorPosition(0, mapHeight+1);
-                    Console.WriteLine("Goblin został zabity          ");
-                    goblin.PositionX = 0;
-                    goblin.PositionY = 0;
+                    Console.WriteLine($"{bumpedEnemy.Name} został zabity!                      ");
+                    
+                    // Erase the dead enemy
+                    Tile tileUnderEnemy = map[bumpedEnemy.PositionX, bumpedEnemy.PositionY];
+                    Console.SetCursorPosition(bumpedEnemy.PositionX, bumpedEnemy.PositionY);
+                    Console.ForegroundColor = tileUnderEnemy.Color;
+                    Console.Write(tileUnderEnemy.Symbol);
+                    
+                    // Move corpse off map
+                    bumpedEnemy.PositionX = -1;
+                    bumpedEnemy.PositionY = -1;
                 }
+            }
+            else if (map[nextX, nextY].Name == "Closed Door")
+            {
+                // Open the door
+                map[nextX, nextY].Name = "Open Door";
+                map[nextX, nextY].Symbol = '-';
+                map[nextX, nextY].IsWalkable = true;
+                
+                Console.SetCursorPosition(nextX, nextY);
+                Console.ForegroundColor = map[nextX, nextY].Color;
+                Console.Write('-');
+            }
+            else if (map[nextX, nextY].IsWalkable)
+            {
+                // Move the player
+                player.PositionX = nextX;
+                player.PositionY = nextY;
+                Console.SetCursorPosition(0, mapHeight + 1);
+                Console.WriteLine("                                                   ");
             }
         }
     }
@@ -89,16 +118,23 @@ class Program
             {
                 if (x == 0 || x == mapWidth - 1 || y == 0 || y == mapHeight - 1)
                 {
-                    // Create a Wall tile (Not walkable)
                     map[x, y] = new Tile("Wall", '#', ConsoleColor.Gray, false);
                 }
                 else
                 {
-                    // Create a Floor tile (Walkable)
                     map[x, y] = new Tile("Floor", '.', ConsoleColor.DarkGray, true);
                 }
             }
         }
+
+        // Draw an internal wall down the middle (Column 10)
+        for (int y = 1; y < mapHeight - 1; y++)
+        {
+            map[10, y] = new Tile("Wall", '#', ConsoleColor.Gray, false);
+        }
+
+        // Replace one of those wall tiles with a closed door
+        map[10, 5] = new Tile("Closed Door", '+', ConsoleColor.DarkYellow, false);
     }
 
     static void DrawMap()
@@ -108,10 +144,21 @@ class Program
             for (int x = 0; x < mapWidth; x++)
             {
                 Console.SetCursorPosition(x, y);
-                // The tile knows its own color and symbol now
                 Console.ForegroundColor = map[x, y].Color;
                 Console.Write(map[x, y].Symbol);
             }
         }
+    }
+
+    static Entity? GetEnemyAt(int x, int y, List<Entity> enemies)
+    {
+        foreach (Entity enemy in enemies)
+        {
+            if (enemy.PositionX == x && enemy.PositionY == y && enemy.CurrentHealth > 0)
+            {
+                return enemy;
+            }
+        }
+        return null; 
     }
 }

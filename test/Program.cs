@@ -16,8 +16,8 @@ class Program
         InitializeMap();
         DrawMap();
 
-        Entity player = new Entity(1, "Player", '@', 2, 2);
-        Entity goblin = new Entity(2, "Goblin" , 'G', 5, 5);
+        Entity player = new(1, "Player", '@', 30, 30, 2, 2);
+        Entity goblin = new(2, "Goblin" , 'G', 15, 15, 5, 5);
 
         while (true)
         {
@@ -25,10 +25,12 @@ class Program
             Console.SetCursorPosition(player.PositionX, player.PositionY);
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write(player.Symbol);
-
-            Console.SetCursorPosition(goblin.PositionX, goblin.PositionY);
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write(goblin.Symbol);
+            if(goblin.CurrentHealth>0)
+            {
+                Console.SetCursorPosition(goblin.PositionX, goblin.PositionY);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write(goblin.Symbol);
+            }
 
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
@@ -55,6 +57,24 @@ class Program
             {
                 player.PositionX = nextX;
                 player.PositionY = nextY;
+                Console.SetCursorPosition(0, mapHeight+1);
+                Console.WriteLine("                                                   ");
+            } 
+            else if (nextX == goblin.PositionX && nextY == goblin.PositionY)
+            {
+              if (goblin.CurrentHealth > 0)
+                {
+                    goblin.CurrentHealth -= 5;
+                    Console.SetCursorPosition(0, mapHeight+1);
+                    System.Console.WriteLine("Goblin otrzymał 5 obrażeń");
+                }
+                else
+                {
+                    player.PositionX = nextX;
+                    player.PositionY = nextY;
+                    Console.SetCursorPosition(0, mapHeight+1);
+                    Console.WriteLine("Goblin został zabity          ");
+                }
             }
         }
     }

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/blu/Documents/Rogalik/test/test.csproj",
-      "projectName": "test",
-      "projectPath": "/home/blu/Documents/Rogalik/test/test.csproj",
+      "projectUniqueName": "/home/blu/Documents/Rogalik/Rogalik.csproj",
+      "projectName": "Rogalik",
+      "projectPath": "/home/blu/Documents/Rogalik/Rogalik.csproj",
       "packagesPath": "/home/blu/.nuget/packages/",
-      "outputPath": "/home/blu/Documents/Rogalik/test/obj/",
+      "outputPath": "/home/blu/Documents/Rogalik/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/blu/.nuget/NuGet/NuGet.Config"

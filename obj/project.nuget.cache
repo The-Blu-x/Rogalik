@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NXVUPv6HG88=",
+  "dgSpecHash": "XXvsIzN5TIM=",
   "success": true,
-  "projectFilePath": "/home/blu/Documents/Rogalik/test/test.csproj",
+  "projectFilePath": "/home/blu/Documents/Rogalik/Rogalik.csproj",
   "expectedPackageFiles": [
     "/home/blu/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.12/microsoft.aspnetcore.app.ref.10.0.12.nupkg.sha512"
   ],

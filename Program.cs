@@ -74,6 +74,8 @@ class Program
                     player.PositionY = nextY;
                     Console.SetCursorPosition(0, mapHeight+1);
                     Console.WriteLine("Goblin został zabity          ");
+                    goblin.PositionX = 0;
+                    goblin.PositionY = 0;
                 }
             }
         }

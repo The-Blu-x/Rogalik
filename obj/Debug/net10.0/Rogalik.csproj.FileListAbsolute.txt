@@ -1,0 +1,15 @@
+/home/blu/Documents/Rogalik/bin/Debug/net10.0/Rogalik
+/home/blu/Documents/Rogalik/bin/Debug/net10.0/Rogalik.deps.json
+/home/blu/Documents/Rogalik/bin/Debug/net10.0/Rogalik.runtimeconfig.json
+/home/blu/Documents/Rogalik/bin/Debug/net10.0/Rogalik.dll
+/home/blu/Documents/Rogalik/bin/Debug/net10.0/Rogalik.pdb
+/home/blu/Documents/Rogalik/obj/Debug/net10.0/Rogalik.GeneratedMSBuildEditorConfig.editorconfig
+/home/blu/Documents/Rogalik/obj/Debug/net10.0/Rogalik.AssemblyInfoInputs.cache
+/home/blu/Documents/Rogalik/obj/Debug/net10.0/Rogalik.AssemblyInfo.cs
+/home/blu/Documents/Rogalik/obj/Debug/net10.0/Rogalik.csproj.CoreCompileInputs.cache
+/home/blu/Documents/Rogalik/obj/Debug/net10.0/Rogalik.sourcelink.json
+/home/blu/Documents/Rogalik/obj/Debug/net10.0/Rogalik.dll
+/home/blu/Documents/Rogalik/obj/Debug/net10.0/refint/Rogalik.dll
+/home/blu/Documents/Rogalik/obj/Debug/net10.0/Rogalik.pdb
+/home/blu/Documents/Rogalik/obj/Debug/net10.0/Rogalik.genruntimeconfig.cache
+/home/blu/Documents/Rogalik/obj/Debug/net10.0/ref/Rogalik.dll

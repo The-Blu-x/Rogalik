@@ -14,11 +14,13 @@ This project is an exploration of procedural generation and turn-based mechanics
 - [x] Basic terminal grid rendering
 - [x] Player movement (Arrows)
 - [x] Basic map boundaries
+- [x] Collision detection (walls)
+- [x] Basic enemies and turn-based combat
 
 **Planned Features:**
 - [ ] Procedural dungeon generation (rooms and corridors)
-- [ ] Collision detection (walls)
-- [ ] Basic enemies and turn-based combat
+- [ ] Better enemies
+- [ ] Items implementation
 - [ ] Loot and inventory system
 - [ ] Win/Loss conditions
 

@@ -16,6 +16,7 @@ This project is an exploration of procedural generation and turn-based mechanics
 - [x] Basic map boundaries
 - [x] Collision detection (walls)
 - [x] Basic enemies and turn-based combat
+- [x] Interaction thru the key E 
 
 **Planned Features:**
 - [ ] Procedural dungeon generation (rooms and corridors)
@@ -23,6 +24,7 @@ This project is an exploration of procedural generation and turn-based mechanics
 - [ ] Items implementation
 - [ ] Loot and inventory system
 - [ ] Win/Loss conditions
+- [ ] Movement switch to 8 directions (Maybe, probably not)
 
 ## Tech Stack
 - **Language:** C# (.NET)

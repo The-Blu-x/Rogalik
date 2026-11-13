@@ -1,0 +1,7 @@
+name,symbol,color,isOccupied,isWalkable,interactable
+Wall,#,Gray,true,false,false
+Floor,.,DarkGray,false,true,false
+Closed Door,+,DarkYellow,true,false,true
+Opened Door,-,DarkYellow,true,true,true
+Tree,T,DarkGreen,true,false,false
+Water,~,Blue,false,false,false

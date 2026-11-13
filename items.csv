@@ -1,0 +1,4 @@
+id,name,symbol,description,stats
+1,Rusty Sword,/,An old iron blade,+3 ATK
+2,Health Potion,!,Restores 10 HP,+10 HP
+3,Wooden Shield,),Light buckler,+2 DEF

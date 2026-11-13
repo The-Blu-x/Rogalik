@@ -1,0 +1,4 @@
+# ignoring unwonted folders #
+bin/
+obj/
+.idea/

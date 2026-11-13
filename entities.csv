@@ -1,0 +1,7 @@
+id,name,symbol,defaultHealth,currentHealth,behavior
+2,Goblin,G,15,15,Hostile
+3,Orc,O,25,25,Hostile
+4,Troll,T,40,40,Hostile
+5,Merchant,M,30,30,Friendly
+6,Deer,d,10,10,Neutral
+7,Wolf,w,18,18,PassiveAggressive
